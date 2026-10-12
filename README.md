@@ -128,13 +128,18 @@ python skills/video-to-knowledge/scripts/bilibili_extractor.py "https://www.bili
 python skills/video-to-knowledge/scripts/bilibili_extractor.py "BV1xx411c7mD" --json
 ```
 
-### 2. 向智能体下达指令范式
-在任何支持的 Agent 对话框中，直接发送如下指令：
+### 2. 自然语言零门槛触发 (Natural Language Zero-Prompt Triggers)
+告别死记硬背的前缀指令！在任何支持的 Agent 对话框中，直接使用你最习惯的日常口语交流即可触发：
 
-* **原貌复刻需求**：
-  > `复刻：https://www.bilibili.com/video/BV1xxxxxx`
-* **深度研读需求**：
-  > `总结：https://www.bilibili.com/video/BV1xxxxxx`
+* **场景 1：想要一手事实与字轨切片（原貌复刻）**
+  > “帮我把这个视频切片一下，原话不要改动：https://www.bilibili.com/video/BV1xxxxxx”  
+  > “提取推文里这个演讲的完整逐字稿，带上时间戳：https://x.com/...”
+* **场景 2：想要干货提炼与架构拓扑（深度研读）**
+  > “这个视频讲了什么核心干货？总结成六段式深度研读笔记：https://youtube.com/watch?v=xxx”  
+  > “拆解一下这个视频的系统架构设计，有哪些高危踩坑点？画个时序图”
+* **场景 3：快速分享与日常随手丢链接（智能融合模式）**
+  > “看看这个视频：https://b23.tv/xxx”  
+  > *(Agent 将自动采用智能融合呈现：正文输出六段式高密度研读，文末以折叠框附带一手时间戳字轨与完整逐字稿)*
 
 ---
 

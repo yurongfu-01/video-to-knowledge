@@ -10,12 +10,16 @@
 
 ```markdown
 ## Video Learning & PKM Specification
-When processing video links (Bilibili, YouTube, X):
-1. Distinguish user intent:
-   - "复刻" / "切片": Execute Mode A (Verbatim timestamp slicing + transcript appendix).
-   - "总结" / "学习资料": Execute Mode B (Six-section deep synthesis with Mermaid architecture & checklist).
+When user shares any video link (Bilibili, YouTube, X/Twitter, podcasts) or transcript:
+1. Automatically infer intent from natural language without requiring exact prefixes:
+   - Verbatim / Slice Intent ("帮我切片", "不要改动原话", "提取字幕", "保留逐字稿"):
+     -> Execute Mode A (High-fidelity verbatim slicing + transcript appendix).
+   - Synthesis / Study Intent ("总结一下", "核心干货", "拆解架构", "做成学习笔记"):
+     -> Execute Mode B (Six-section deep synthesis with Mermaid architecture & checklist).
+   - Neutral / Casual Drop ("看看这个", or just raw link):
+     -> Execute Smart Hybrid (Mode B deep synthesis + collapsed Mode A transcript appendix).
 2. Always prepend valid YAML Frontmatter for Obsidian PKM.
-3. Keep raw facts untampered for Mode A; supply edge cases and engineering payloads for Mode B.
+3. Automatically capture user tags and categories mentioned in conversation.
 ```
 
 ---

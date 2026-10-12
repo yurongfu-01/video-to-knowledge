@@ -2,10 +2,10 @@
   "name": "video-to-knowledge",
   "displayName": "Video-to-Knowledge (视频学习与高保真知识库沉淀工作流)",
   "version": "1.0.0",
-  "description": "通用视频学习与知识库沉淀工作流（Harness通用版·适配Antigravity/ClaudeCode/Codex/Hermes）。支持【高保真原貌切片复刻】与【六段式深度学习资料】双模式，无缝对接 Obsidian / Notion 知识库。",
+  "description": "通用视频学习与知识库沉淀工作流（Harness通用版·适配Antigravity/ClaudeCode/Codex/Hermes）。支持自然语言零配置触发：【高保真原貌切片复刻】与【六段式深度学习资料】双模式自适应切换，无缝对接 Obsidian / Notion 知识库。",
   "suggestedPrompts": [
-    "复刻：https://www.bilibili.com/video/BV1xxxxxx（生成原貌切片与逐字稿附录）",
-    "总结：https://www.bilibili.com/video/BV1xxxxxx（提炼六段式深度学习研读案）",
-    "解析 X/Twitter 视频并生成带时间戳的 Markdown 学习笔记"
+    "帮我把这个B站视频切片一下，原话不要改动：https://www.bilibili.com/video/BV1xxxxxx",
+    "这个技术演讲讲了什么核心干货？总结成六段式深度学习笔记并画出流程图：https://...",
+    "看看这个推文里的视频，提取一手时间戳字轨并沉淀到我的知识库：https://x.com/..."
   ]
 }

@@ -21,15 +21,17 @@ description: 通用视频学习与知识库沉淀工作流（Harness通用版·�
 
 ---
 
-## 2. 意图路由规约 (Intent Routing)
+## 2. 自然语言隐式触发与多层语义路由规约 (Natural Language Semantic Routing)
 
-当用户输入音视频 URL 或文稿时，根据指令关键词自动路由到对应处理模式：
+**静默自激活原则**：当用户在对话中发送任意主流音视频 URL（B站 `bilibili.com`/`b23.tv`、YouTube `youtube.com`/`youtu.be`、X/Twitter `x.com`/`twitter.com`、播客或本地视频），或直接贴入带时间戳的文稿段落，并表达学习、整理、切片、总结、做笔记意图时，**严禁要求用户记忆或输入特定前缀指令**，智能体自动依据自然语言语境进行意图分类与分流：
 
-| 用户指令模式 | 触发关键词示例 | 输出规格 | 引用模板 |
-| :--- | :--- | :--- | :--- |
-| **模式 A：高保真原貌切片** | `复刻`、`切片`、`原貌`、`逐字还原`、`原样文档` | 时间戳章节目录 + 详细原貌要点切片 + 完整逐字稿附录 | `references/VERBATIM_SLICE_TEMPLATE.md` |
-| **模式 B：六段式深度研读** | `总结`、`研读`、`学习资料`、`深度分析`、`提炼` | 元数据 + 全景时间轴 + 机理拆解 + 高危盲区 + 实战载荷 + 准出清单 | `references/SIX_SECTION_TEMPLATE.md` |
-| **未明确指定** | 仅粘贴链接无其他修饰 | 默认先输出**模式 B 核心研读大纲**，并提示用户是否需要生成模式 A 完整逐字切片档。 | - |
+| 意图分类 | 核心语境与自然语言触发特征 | 典型用户日常表达样例 | 自动路由行为 | 产物规范引用 |
+| :--- | :--- | :--- | :--- | :--- |
+| **类别一：原貌切片复刻**<br>*(Fidelity & Slicing)* | 强调**一手事实、客观记录、原话无修改、时间轴切片、完整逐字稿**。 | • “帮我把这个视频切片一下，原话不要改动”<br>• “提取这个视频的字幕，分段整理好存进知识库”<br>• “还原一下这个演讲的逐字稿，带上时间戳”<br>• “这个视频纯复刻为文档，不要 AI 脑补总结” | 激活 **模式 A**：严格按时间戳分段，忠实还原讲师发言原意，文末附加全量逐字稿附录。 | [`references/VERBATIM_SLICE_TEMPLATE.md`](references/VERBATIM_SLICE_TEMPLATE.md) |
+| **类别二：深度研读提炼**<br>*(Deep Synthesis)* | 强调**提炼干货、解构架构、核心心法、避坑指南、做成学习资料**。 | • “这个视频讲了什么核心干货？总结一下”<br>• “帮我拆解一下这个视频里的系统架构设计”<br>• “提炼成六段式学习笔记沉淀到 Obsidian”<br>• “有哪些工业级踩坑点？总结下讲师的心法和自检表” | 激活 **模式 B**：全景时间轴 + Mermaid 架构时序图 + 底层机理 + 高危反模式 + 实战载荷 + 自检清单。 | [`references/SIX_SECTION_TEMPLATE.md`](references/SIX_SECTION_TEMPLATE.md) |
+| **类别三：缺省/模糊意图**<br>*(Smart Adaptive Hybrid)* | 用户仅贴入链接，或用极简口语表达（如“看看这个”、“学一下这个”）。 | • “https://www.bilibili.com/video/BV1xxxxxx”<br>• “看看这个视频：https://x.com/...”<br>• “帮我整理这个视频” | 激活 **智能融合模式**：正文输出模式 B 高密度研读，文末通过折叠块完整附带模式 A 一手时间戳字轨。 | 融合模式 (B为主体 + A为折叠附录) |
+
+> 详细的自然语言测试用例与实体提取规范见 [`references/NATURAL_LANGUAGE_TRIGGER_SPEC.md`](references/NATURAL_LANGUAGE_TRIGGER_SPEC.md)。
 
 ---
 
