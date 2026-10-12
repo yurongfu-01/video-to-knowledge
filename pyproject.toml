@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-to-knowledge"
+version = "1.0.0"
+description = "Universal Video-to-Knowledge Harness Skill: Automated timestamp slicing, verbatim replication, and PKM distillation for Codex, Claude Code, Hermes & Antigravity."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "yurongfu-01" }
+]
+keywords = [
+    "video-summarizer",
+    "video-learning",
+    "pkm",
+    "obsidian",
+    "agent-skill",
+    "harness",
+    "claude-code",
+    "antigravity",
+    "codex",
+    "hermes"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Education",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/yurongfu-01/video-to-knowledge"
+Repository = "https://github.com/yurongfu-01/video-to-knowledge.git"
+Issues = "https://github.com/yurongfu-01/video-to-knowledge/issues"

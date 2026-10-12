@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Syntax Check Scripts
+        run: |
+          python -m py_compile skills/video-to-knowledge/scripts/bilibili_extractor.py
+          python -m py_compile skills/video-to-knowledge/scripts/transcript_processor.py
+          python -m py_compile adapters/hermes/hermes_tool.py
+
+      - name: Validate JSON & Configs
+        run: |
+          python -c "import json; json.load(open('plugin.json'))"
