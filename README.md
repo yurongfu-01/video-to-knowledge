@@ -68,6 +68,9 @@ flowchart TD
   5. **实战载荷**：可直接复制执行的代码片段、YAML 或 JSON 规范。
   6. **准出清单**：可勾选的预检清单 (Pre-flight Checklist)。
 * **模板**：[SIX_SECTION_TEMPLATE.md](skills/video-to-knowledge/references/SIX_SECTION_TEMPLATE.md)
+* **生产级旗舰标杆案例**：[examples/stanford_cs146s_always_on_agents_distillation.md](examples/stanford_cs146s_always_on_agents_distillation.md)
+  * 原视频出处：Stanford CS146S（Lee Robinson，时长 45分17秒）。
+  * 深度沉淀：42 张高清幻灯片语义对照、Mermaid 脉络时间轴、Firecracker MicroVM 状态机、Temporal 持久化容灾、Prompt 缓存无损架构、高危盲区表与 Pre-flight 检查清单。
 
 ---
 
@@ -165,8 +168,10 @@ video-to-knowledge/
 │           ├── bilibili_extractor.py
 │           └── transcript_processor.py
 ├── examples/                    # 完整真实交付物示范
+│   ├── images/                  # 真实标杆案例配套高清原画资产 (42张)
 │   ├── sample_mode_a_verbatim.md
-│   └── sample_mode_b_distillation.md
+│   ├── sample_mode_b_distillation.md
+│   └── stanford_cs146s_always_on_agents_distillation.md # 生产级模式 B 旗舰标杆案例
 ├── plugin.json                  # Antigravity 插件配置
 ├── pyproject.toml               # Python 项目配置
 ├── LICENSE                      # MIT 开源许可证
