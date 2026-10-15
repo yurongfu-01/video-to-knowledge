@@ -120,7 +120,19 @@ SORT date DESC
 
 ## 🚀 极速上手 (Quick Start)
 
-### 1. 抓取 B 站视频字幕与元数据 (内置脚本)
+### 1. 启动可视化视频分析网站 (Video2Knowledge Web Studio)
+本项目内置完整的现代化 Web 可视化分析工作台（基于 React 18 + Tailwind CSS + Mermaid.js + Express）：
+
+- **一键极速启动**：在项目根目录下双击执行 `start_web.bat`（或在终端运行 `cd web && npm start`）。
+- **浏览器访问**：打开 [http://localhost:3001](http://localhost:3001)。
+- **核心交互亮点**：
+  - 🎥 **全源覆盖**：支持 B站 (BV号/链接免登录提取)、YouTube、X(Twitter) 演讲推文与本地字幕/文稿。
+  - 🔄 **双模无缝切换**：实时生成并对照【模式 B：六段式深度研读】与【模式 A：高保真原貌切片复刻】。
+  - 🖼️ **原画幻灯片对照画廊**：内置斯坦福 CS146S 42 张原画幻灯片，点击时间戳即刻精准定位。
+  - 📊 **动态 Mermaid 拓扑**：时间轴脉络图、核心时序交互图原生高保真渲染。
+  - 💾 **Obsidian PKM 与桌面同步**：一键复制带 YAML Frontmatter 的标准笔记，或一键同步至桌面个人知识库。
+
+### 2. 抓取 B 站视频字幕与元数据 (内置脚本)
 本工具箱内置开箱即用的轻量提取脚本（纯标准库实现，无重型第三方依赖）：
 
 ```bash
@@ -131,7 +143,7 @@ python skills/video-to-knowledge/scripts/bilibili_extractor.py "https://www.bili
 python skills/video-to-knowledge/scripts/bilibili_extractor.py "BV1xx411c7mD" --json
 ```
 
-### 2. 自然语言零门槛触发 (Natural Language Zero-Prompt Triggers)
+### 3. 自然语言零门槛触发 (Natural Language Zero-Prompt Triggers)
 告别死记硬背的前缀指令！在任何支持的 Agent 对话框中，直接使用你最习惯的日常口语交流即可触发：
 
 * **场景 1：想要一手事实与字轨切片（原貌复刻）**
@@ -166,7 +178,10 @@ video-to-knowledge/
 │       │   └── VERBATIM_SLICE_TEMPLATE.md
 │       └── scripts/             # 开箱即用提取工具
 │           ├── bilibili_extractor.py
-│           └── transcript_processor.py
+├── web/                         # 可视化分析工作台 (React 18 + Tailwind + Express)
+│   ├── server/                  # 接口后端与提取/同步联动
+│   ├── src/                     # React 前端组件与沉浸式阅览器
+│   └── package.json             # Web 工程依赖
 ├── examples/                    # 完整真实交付物示范
 │   ├── images/                  # 真实标杆案例配套高清原画资产 (42张)
 │   ├── sample_mode_a_verbatim.md
@@ -174,6 +189,7 @@ video-to-knowledge/
 │   └── stanford_cs146s_always_on_agents_distillation.md # 生产级模式 B 旗舰标杆案例
 ├── plugin.json                  # Antigravity 插件配置
 ├── pyproject.toml               # Python 项目配置
+├── start_web.bat                # Windows 一键启动网站脚本
 ├── LICENSE                      # MIT 开源许可证
 └── README.md                    # 项目全景说明
 ```

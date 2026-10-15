@@ -39,3 +39,11 @@ Thumbs.db
 temp/
 tmp/
 *.tmp
+
+# Node.js
+node_modules/
+dist/
+web/dist/
+web/uploads/
+.env
+.env.local
