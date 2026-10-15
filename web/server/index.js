@@ -20,8 +20,25 @@ const IMAGES_DIR = path.resolve(REPO_ROOT, 'examples', 'images');
 const WORKSPACE_IMAGES_DIR = path.resolve(WORKSPACE_ROOT, 'images');
 const PYTHON_PATH = 'D:\\python-learning\\.venv\\Scripts\\python.exe';
 
+// Process level safety guards
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception caught:', err.message);
+});
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection caught:', reason);
+});
+
 app.use(cors());
+
+// Parse JSON with error handling
 app.use(express.json({ limit: '50mb' }));
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).json({ error: 'Invalid JSON payload: ' + err.message });
+  }
+  next(err);
+});
+
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Multer for upload
@@ -645,6 +662,12 @@ if (fs.existsSync(DIST_DIR)) {
     res.sendFile(path.join(DIST_DIR, 'index.html'));
   });
 }
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error('Unhandled express error:', err.message || err);
+  res.status(500).json({ error: '服务器内部错误: ' + (err.message || '未知异常') });
+});
 
 app.listen(PORT, () => {
   console.log(`Video2Knowledge Backend Server running at http://localhost:${PORT}`);
